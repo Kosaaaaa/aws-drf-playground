@@ -6,16 +6,16 @@ on:
     branches: [ master ]
 
 env:
-  DB_NAME: "dbname"
-  DB_USER: "rootuser"
-  DB_PASS: "changeMe"
+  POSTGRES_DB_NAME: "dbname"
+  POSTGRES_DB_USER: "rootuser"
+  POSTGRES_DB_PASS: "changeme"
   APP_PORT: "8080"
   APP_SECRET_KEY: "changeme"
   APP_ALLOWED_HOSTS: "*"
   APP_DEBUG: "1"
 
 jobs:
-  pre-commit:
+  tests:
     runs-on: ubuntu-latest
     steps:
       - uses: docker/login-action@v1
