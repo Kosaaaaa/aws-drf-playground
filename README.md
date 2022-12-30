@@ -2,6 +2,8 @@
 
 AWS Playground with Django DRF App
 
+[![CI](https://github.com/Kosaaaaa/aws-drf-playground/actions/workflows/ci.yml/badge.svg)](https://github.com/Kosaaaaa/aws-drf-playground/actions/workflows/ci.yml)
+
 ## Description
 
 Simple Django Rest Framework API with jokes. This is proof of concept of deploying dockerized apps onto AWS EC2
@@ -29,3 +31,5 @@ instance.
 ## Changelog
 
 * 1.0.0 - initial
+* 1.1.0 - add JWT authentication
+* 1.1.1 - add README badges
