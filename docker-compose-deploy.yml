@@ -1,0 +1,50 @@
+version: "3"
+
+volumes:
+  postgres-db-data:
+  static-data:
+
+services:
+  app:
+    build:
+      context: .
+      args:
+        - DEV=false
+        - PORT=9000
+    volumes:
+      - static-data:/vol/web
+    command: [ "run_deploy.sh" ]
+    environment:
+      - DB_HOST=postgres_db
+      - DB_NAME=${POSTGRES_DB_NAME}
+      - DB_USER=${POSTGRES_DB_USER}
+      - DB_PASS=${POSTGRES_DB_PASS}
+      - SECRET_KEY=${APP_SECRET_KEY}
+      - ALLOWED_HOSTS=${APP_ALLOWED_HOSTS}
+      - DEBUG=0
+    depends_on:
+      postgres_db:
+        condition: service_healthy
+  postgres_db:
+    image: postgres:13-alpine
+    volumes:
+      - postgres-db-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB_NAME}
+      - POSTGRES_USER=${POSTGRES_DB_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_DB_PASS}
+    healthcheck:
+      test: [ "CMD-SHELL", "sh -c 'pg_isready -U ${POSTGRES_DB_USER} -d ${POSTGRES_DB_NAME}'" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  proxy:
+    build:
+      context: ./proxy
+    restart: always
+    depends_on:
+      - app
+    ports:
+      - "80:8000"
+    volumes:
+      - static-data:/vol/static

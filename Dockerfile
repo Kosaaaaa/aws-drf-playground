@@ -2,11 +2,11 @@ FROM python:3.11.0-alpine
 
 ENV PYTHONUNBUFFERED 1
 
-ARG DEV=false
 ARG PORT=8000
 
 COPY ./requirements.txt /tmp/requirements.txt
 COPY ./src/app /app
+COPY ./scripts /scripts
 WORKDIR /app
 EXPOSE $PORT
 
@@ -30,8 +30,9 @@ RUN adduser \
         django-user && \
     mkdir -p /vol/web/static && \
     chown -R django-user:django-user /vol && \
-    chmod -R 755 /vol
+    chmod -R 755 /vol && \
+    chmod -R +x /scripts
 
-ENV PATH="/py/bin:$PATH"
+ENV PATH="/scripts:/py/bin:$PATH"
 
 USER django-user

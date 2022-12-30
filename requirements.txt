@@ -3,3 +3,4 @@ djangorestframework~=3.14.0
 drf-spectacular~=0.23.1
 psycopg2~=2.9.5
 pyjokes~=0.6.0
+uWSGI~=2.0.21
