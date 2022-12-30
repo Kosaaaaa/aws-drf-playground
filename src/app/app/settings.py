@@ -30,7 +30,7 @@ ALLOWED_HOSTS.extend(
     filter(
         None,
         os.environ.get('ALLOWED_HOSTS', '').split(','),
-    )
+    ),
 )
 
 # Application definition
@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'drf_spectacular',
 
+    'core',
 ]
 
 MIDDLEWARE = [
@@ -88,7 +89,7 @@ DATABASES = {
         'NAME': os.environ.get('DB_NAME'),
         'USER': os.environ.get('DB_USER'),
         'PASSWORD': os.environ.get('DB_PASS'),
-    }
+    },
 }
 
 # Password validation
@@ -131,8 +132,10 @@ STATIC_ROOT = '/vol/web/static'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+AUTH_USER_MODEL = 'core.User'
+
 DRF_DEFAULT_RENDERER_CLASSES = [
-    'rest_framework.renderers.JSONRenderer'
+    'rest_framework.renderers.JSONRenderer',
 ]
 
 if DEBUG:
@@ -147,7 +150,7 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_THROTTLE_RATES': {
         'anon': '10/hour',
-    }
+    },
 }
 
 SPECTACULAR_SETTINGS = {
