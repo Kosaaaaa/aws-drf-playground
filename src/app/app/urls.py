@@ -9,6 +9,7 @@ from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/core/', include('core.urls')),
+    path('api/user/', include('user.urls')),
 ]
 
 if settings.DEBUG:
