@@ -144,6 +144,7 @@ if DEBUG:
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': DRF_DEFAULT_RENDERER_CLASSES,
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    'EXCEPTION_HANDLER': 'core.exception_handler.custom_exception_handler',
     'DEFAULT_THROTTLE_RATES': {
         'anon': '10/hour',
     },
