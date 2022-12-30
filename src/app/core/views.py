@@ -1,5 +1,4 @@
 import pyjokes
-from core.serializers import JokesSerializer
 from drf_spectacular.types import OpenApiTypes
 from drf_spectacular.utils import (
     OpenApiParameter, extend_schema, extend_schema_view,
@@ -8,6 +7,8 @@ from rest_framework import exceptions
 from rest_framework.generics import GenericAPIView
 from rest_framework.request import Request
 from rest_framework.response import Response
+
+from core.serializers import JokesSerializer
 
 JOKES_CATEGORIES = ['neutral', 'chuck', 'all', 'twister']
 JOKES_LANGUAGES = ['en', 'de', 'es', 'gl', 'eu', 'it']
