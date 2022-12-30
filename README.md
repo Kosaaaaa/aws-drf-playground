@@ -25,3 +25,7 @@ instance.
     * project splitted into services
     * used healthcheck for postgres DB - django app should wait until it is ready to use
 * ✅ OpenAPI 3.0 schema and docs using `drf-spectacular`
+
+## Changelog
+
+* 1.0.0 - initial
