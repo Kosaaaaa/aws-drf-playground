@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'drf_spectacular',
 
     'core',
+    'user',
 ]
 
 MIDDLEWARE = [
@@ -148,6 +149,13 @@ REST_FRAMEWORK = {
     'DEFAULT_THROTTLE_RATES': {
         'anon': '10/hour',
     },
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
+
+SIMPLE_JWT = {
+    'USER_ID_FIELD': 'uuid',
 }
 
 SPECTACULAR_SETTINGS = {
