@@ -1,0 +1,9 @@
+[run]
+plugins = covdefaults
+omit=
+    */tests/*
+    */migrations/*
+    */__init__.py
+
+[report]
+fail_under = 75

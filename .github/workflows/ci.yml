@@ -31,6 +31,12 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USER }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - uses: actions/checkout@v3
-      - name: Test
-        run: docker-compose run --rm app sh -c "python manage.py test"
+      - name: Test and Generate Coverage Report
+        run: docker-compose run --rm app sh -c "coverage run --source='.' manage.py test && coverage report && coverage xml"
+      - uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./src/app/coverage.xml
+          fail_ci_if_error: true
+          verbose: true
     needs: [ pre-commit ]

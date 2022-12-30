@@ -28,9 +28,11 @@ instance.
     * used healthcheck for postgres DB - django app should wait until it is ready to use
 * ✅ OpenAPI 3.0 schema and docs using `drf-spectacular`
 * ✅ JWT Authentication
+* ✅ Codecov Integration in CI
 
 ## Changelog
 
 * 1.0.0 - initial
 * 1.1.0 - add JWT authentication
 * 1.1.1 - add README badges
+* 1.1.2 - add codecov integration
