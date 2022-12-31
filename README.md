@@ -3,6 +3,7 @@
 AWS Playground with Django DRF App
 
 [![CI](https://github.com/Kosaaaaa/aws-drf-playground/actions/workflows/ci.yml/badge.svg)](https://github.com/Kosaaaaa/aws-drf-playground/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/github/Kosaaaaa/aws-drf-playground/branch/master/graph/badge.svg?token=1WS18K5KN5)](https://codecov.io/github/Kosaaaaa/aws-drf-playground)
 
 ## Description
 
