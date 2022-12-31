@@ -33,7 +33,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - uses: actions/checkout@v3
       - name: Test and Generate Coverage Report
-        run: docker-compose run --rm app sh -c "coverage run --source='.' manage.py test && coverage report && coverage xml"
+        run: docker-compose run --rm app sh -c "coverage run --source='.' manage.py test && coverage report"
 #      - name: Upload Coverage Report
 #        uses: codecov/codecov-action@v3
 #        with:

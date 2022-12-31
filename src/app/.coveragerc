@@ -4,6 +4,10 @@ omit=
     */tests/*
     */migrations/*
     */__init__.py
+    app/asgi.py
+    app/wsgi.py
+    app/settings.py
+    */urls.py
 
 [report]
 fail_under = 75
