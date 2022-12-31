@@ -31,8 +31,10 @@ RUN adduser \
     mkdir -p /vol/web/static && \
     chown -R django-user:django-user /vol && \
     chmod -R 755 /vol && \
-    chmod -R +x /scripts
+    chmod -R +x /scripts && \
+    mkdir ./coverage && \
+    chown -R django-user:django-user ./coverage
 
 ENV PATH="/scripts:/py/bin:$PATH"
 
-#USER django-user
+USER django-user

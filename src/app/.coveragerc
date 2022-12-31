@@ -8,6 +8,10 @@ omit=
     app/wsgi.py
     app/settings.py
     */urls.py
+data_file = ./coverage/.coverage
 
 [report]
 fail_under = 75
+
+[xml]
+output = ./coverage/coverage.xml
