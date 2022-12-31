@@ -35,4 +35,4 @@ RUN adduser \
 
 ENV PATH="/scripts:/py/bin:$PATH"
 
-USER django-user
+#USER django-user
