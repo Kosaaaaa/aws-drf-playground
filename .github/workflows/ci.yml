@@ -39,6 +39,5 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           directory: ./src/app/
-          files: ./coverage.xml
           fail_ci_if_error: true
           verbose: true
