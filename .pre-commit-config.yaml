@@ -27,7 +27,11 @@ repos:
         additional_dependencies: [
           djangorestframework-stubs,
           django-stubs,
-          djangorestframework,
+          djangorestframework~=3.14.0,
+          djangorestframework-simplejwt~=5.2.2,
+          drf-spectacular~=0.23.1,
+          psycopg2~=2.9.5,
+          pyjokes~=0.6.0,
         ]
   - repo: https://github.com/charliermarsh/ruff-pre-commit
     rev: v0.0.254

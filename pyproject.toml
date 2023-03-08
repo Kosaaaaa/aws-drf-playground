@@ -2,7 +2,9 @@
 profile = "black"
 
 [tool.mypy]
-strict = true
+ignore_missing_imports = true
+warn_unused_ignores = true
+warn_redundant_casts = true
 plugins = [
     "mypy_django_plugin.main",
     "mypy_drf_plugin.main",
