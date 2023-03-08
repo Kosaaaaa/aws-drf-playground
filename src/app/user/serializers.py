@@ -11,8 +11,8 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = get_user_model()
-        fields = ['email', 'password', 'name']
-        extra_kwargs = {'password': {'write_only': True, 'min_length': 5}}
+        fields = ["email", "password", "name"]
+        extra_kwargs = {"password": {"write_only": True, "min_length": 5}}
 
     def create(self, validated_data):
         """Create and return a user with encrypted password."""
@@ -20,7 +20,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     def update(self, instance, validated_data):
         """Update and return user."""
-        password = validated_data.pop('password', None)
+        password = validated_data.pop("password", None)
         user = super().update(instance, validated_data)
 
         if password:
@@ -43,6 +43,6 @@ class JwtTokenSerializer(TokenObtainPairSerializer):
     def get_token(cls, user):
         token = super().get_token(user)
 
-        token['user_email'] = user.email
+        token["user_email"] = user.email
 
         return token

@@ -1,46 +1,47 @@
 """
     Django admin customization.
 """
+from core import models
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.utils.translation import gettext_lazy as _
 
-from core import models
-
 
 class UserAdmin(BaseUserAdmin):
     """Define the admin pages for users."""
-    ordering = ['id']
-    list_display = ['email', 'name', 'is_deleted']
+
+    ordering = ["id"]
+    list_display = ["email", "name", "is_deleted"]
     fieldsets = (
-        (None, {'fields': ('email', 'password', 'uuid')}),
-        (_('Personal Info'), {'fields': ('name',)}),
-        (None, {'fields': ('is_deleted',)}),
+        (None, {"fields": ("email", "password", "uuid")}),
+        (_("Personal Info"), {"fields": ("name",)}),
+        (None, {"fields": ("is_deleted",)}),
         (
-            _('Permissions'),
+            _("Permissions"),
             {
-                'fields': (
-                    'is_active',
-                    'is_staff',
-                    'is_superuser',
+                "fields": (
+                    "is_active",
+                    "is_staff",
+                    "is_superuser",
                 ),
             },
         ),
-        (_('Important dates'), {'fields': ('last_login', 'created_at', 'updated_at', 'deleted_at')}),
+        (_("Important dates"), {"fields": ("last_login", "created_at", "updated_at", "deleted_at")}),
     )
-    readonly_fields = ['last_login', 'created_at', 'updated_at', 'deleted_at', 'uuid', 'is_deleted']
+    readonly_fields = ["last_login", "created_at", "updated_at", "deleted_at", "uuid", "is_deleted"]
     add_fieldsets = (
         (
-            None, {
-                'classes': ('wide',),
-                'fields': (
-                    'email',
-                    'password1',
-                    'password2',
-                    'name',
-                    'is_active',
-                    'is_staff',
-                    'is_superuser',
+            None,
+            {
+                "classes": ("wide",),
+                "fields": (
+                    "email",
+                    "password1",
+                    "password2",
+                    "name",
+                    "is_active",
+                    "is_staff",
+                    "is_superuser",
                 ),
             },
         ),
