@@ -7,6 +7,7 @@ repos:
       - id: trailing-whitespace
       - id: end-of-file-fixer
       - id: check-yaml
+      - id: check-toml
       - id: debug-statements
       - id: name-tests-test
         args: [ --pytest-test-first ]
@@ -18,6 +19,16 @@ repos:
         exclude: "[a-zA-Z]*/(migrations)/(.)*"
         args:
           - --py311-plus
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.1.1
+    hooks:
+      - id: mypy
+        exclude: "[a-zA-Z]*/(migrations)/(.)*"
+        additional_dependencies: [
+          djangorestframework-stubs,
+          django-stubs,
+          djangorestframework,
+        ]
   - repo: https://github.com/charliermarsh/ruff-pre-commit
     rev: v0.0.254
     hooks:
