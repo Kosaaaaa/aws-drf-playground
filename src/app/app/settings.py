@@ -25,7 +25,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "change_me")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool(int(os.environ.get("DEBUG", 0)))
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS: list[str] = []
 ALLOWED_HOSTS.extend(
     filter(
         None,
