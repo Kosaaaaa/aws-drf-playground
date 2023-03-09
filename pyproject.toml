@@ -1,0 +1,31 @@
+[tool.isort]
+profile = "black"
+
+[tool.mypy]
+ignore_missing_imports = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+plugins = [
+    "mypy_django_plugin.main",
+    "mypy_drf_plugin.main",
+]
+mypy_path = "src/app"
+
+[tool.django-stubs]
+django_settings_module = "app.settings"
+
+[tool.ruff]
+select = [
+    "E", # pycodestyle errors
+    "W", # pycodestyle warnings
+    "F", # pyflakes
+    "C", # flake8-comprehensions
+    "B", # flake8-bugbear
+]
+ignore = [
+    "E501", # line too long, handled by black
+    "B008", # do not perform function calls in argument defaults
+]
+
+[tool.black]
+line-length = 120
